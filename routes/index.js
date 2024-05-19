@@ -23,4 +23,10 @@ router.get('/new', function (res, res, next) {
   res.render('new');
 });
 
+router.post('/new', (req, res) => {
+  const { user, text } = req.body;
+  messages.push({ user, text, added: new Date() });
+  res.redirect('/');
+});
+
 module.exports = router;
